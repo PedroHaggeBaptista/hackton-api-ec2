@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  //id String @id @default(auto()) @map("_id") @db.ObjectId
+  id           String   @id
+  email        String   @unique
+  acceptTerms  Boolean
+  contact      String
+  discord      String
+  twitter      String?  @default("Não informado")
+  github       String?  @default("Não informado")
+  linkedin     String?  @default("Não informado")
+  instagram    String?  @default("Não informado")
+  document     String
+  documentType String
+  fullName     String
+  institution  String
+  why          String
+  history      String
+  habilities   String
+  mailing      Boolean
+  approved     Boolean
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Email {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  quantity Int
+
+  @@map("emails")
+}
+
+model Contato {
+  id      Int    @id @default(autoincrement())
+  name    String
+  email   String @unique
+  message String
+
+  @@map("contatos")
+}
+
+model Patrocinador {
+  id          Int    @id @default(autoincrement())
+  companyName String
+  email       String @unique
+
+  @@map("patrocinadores")
+}

@@ -1,0 +1,70 @@
+Arguments: 
+  /usr/bin/node /mnt/c/Users/marce/AppData/Roaming/npm/node_modules/yarn/bin/yarn.js clean-cache
+
+PATH: 
+  /home/marcelo/.vscode-server/bin/5e805b79fcb6ba4c2d23712967df89a089da575b/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Users/marce/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/marce/AppData/Roaming/npm:/mnt/c/Users/marce/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Applications/Scoop/shims:/mnt/c/Users/marce/scoop/shims:/mnt/c/Users/marce/AppData/Local/JetBrains/Toolbox/scripts:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  19.7.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/marcelo/dev/hackton-api/package.json: Expected double-quoted property name in JSON at position 272
+      at JSON.parse (<anonymous>)
+      at /mnt/c/Users/marce/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/mnt/c/Users/marce/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:310:30)
+      at /mnt/c/Users/marce/AppData/Roaming/npm/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "hackton-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node app.js",
+      "dev": "nodemon app.js",
+      "clean-cache": "rm -rf node_modules/.cache",
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/InteliBlockchain/hackton-api.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/InteliBlockchain/hackton-api/issues"
+    },
+    "homepage": "https://github.com/InteliBlockchain/hackton-api#readme",
+    "dependencies": {
+      "@prisma/client": "^4.10.1",
+      "body-parser": "^1.20.1",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.3",
+      "express": "^4.18.2",
+      "express-async-errors": "^3.1.1",
+      "express-rate-limit": "^6.7.0",
+      "express-slow-down": "^1.5.0",
+      "express-validator": "^6.14.3",
+      "jsonwebtoken": "^9.0.0",
+      "nodemailer": "^6.9.1",
+      "nodemon": "^2.0.20",
+      "uuid": "^9.0.0"
+    },
+    "devDependencies": {
+      "prisma": "^4.10.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
