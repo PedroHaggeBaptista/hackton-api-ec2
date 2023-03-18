@@ -323,7 +323,7 @@ class PreSub {
             port: 587,
             secure: false,
             auth: {
-                user: "inteliblockchain@gmail.com",
+                user: SMTP_CONFIG.user,
                 pass: process.env.PASS_SMTP1,
             },
             tls: {
