@@ -42,5 +42,17 @@ router.delete(
     contactController.deletePartner
 );
 
+router.get(
+    "/getAllContacts",
+    adminAuth.verifyAdmin,
+    contactController.getAllContacts
+);
+
+router.get(
+    "/getAllPartners",
+    adminAuth.verifyAdmin,
+    contactController.getAllPartners
+);
+
 //Exporta o ROUTER
 module.exports = router;

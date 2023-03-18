@@ -105,6 +105,26 @@ class Contact {
             throw new Error(error);
         }
     }
+
+    async getAllContacts() {
+        try {
+            const contacts = await prisma.contato.findMany()
+
+            return contacts;
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    async getAllPartners() {
+        try {
+            const partners = await prisma.patrocinador.findMany()
+
+            return partners;
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 }
 
 module.exports = {

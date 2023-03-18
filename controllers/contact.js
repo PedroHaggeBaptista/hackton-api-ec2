@@ -98,10 +98,34 @@ const deleteContact = async (req, res) => {
     }
 }
 
+const getAllContacts = async (req, res) => {
+    //Chamada para o service
+    try {
+        //Tratamento das respostas do método da classe
+        const result = await contactService.getAllContacts();
+        res.send(result)
+    } catch (err) {
+        res.status(500).send(err.message)
+    }
+}
+
+const getAllPartners = async (req, res) => {
+    //Chamada para o service
+    try {
+        //Tratamento das respostas do método da classe
+        const result = await contactService.getAllPartners();
+        res.send(result)
+    } catch (err) {
+        res.status(500).send(err.message)
+    }
+}
+
 //Exporta as funções do controller para o ROUTER
 module.exports = {
     contact,
     partner,
     deletePartner,
-    deleteContact
+    deleteContact,
+    getAllContacts,
+    getAllPartners
 }
