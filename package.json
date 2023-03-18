@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "prisma migrate dev && node app.js",
+    "build": "npm install && prisma migrate dev",
+    "start": "node app.js",
     "dev": "nodemon app.js",
     "clean-cache": "rm -rf node_modules/.cache"
   },

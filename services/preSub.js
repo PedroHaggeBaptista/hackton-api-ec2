@@ -14,8 +14,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: "matchagasbit@gmail.com",
-        pass: "kqcdskgkvbihtuzb",
+        user: SMTP_CONFIG.user,
+        pass: SMTP_CONFIG.pass,
     },
     tls: {
         rejectUnauthorized: false,
@@ -59,7 +59,7 @@ class PreSub {
             await transporter.sendMail({
                 text: "Inscrição no Challange da InteliBlockChain",
                 subject: "Challange InteliBlockchain 2023",
-                from: "Noreply InteliBlockChain<noreply@InteliBlockChain.com>",
+                from: "Noreply InteliBlockChain<blockchain@inteli.edu.br>",
                 to: `${email}`,
                 html: emails.generateEmailSendConfirmation(email, tokenToEmail),
             });
@@ -131,7 +131,7 @@ class PreSub {
             await transporter.sendMail({
                 text: "Inscrição no Challange da InteliBlockChain",
                 subject: "Challange InteliBlockchain 2023",
-                from: "Noreply InteliBlockChain<noreply@InteliBlockChain.com>",
+                from: "Noreply InteliBlockChain<blockchain@inteli.edu.br>",
                 to: `${email}`,
                 html: emails.generateEmailSendConfirmation(email, tokenToEmail),
             });
@@ -317,6 +317,20 @@ class PreSub {
         }, process.env.MD5_KEY_ADMIN, {
             expiresIn: "15m",
         })
+
+        const transporter1 = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: "inteliblockchain@gmail.com",
+                pass: process.env.PASS_SMTP1,
+            },
+            tls: {
+                rejectUnauthorized: false,
+            },
+        });
+
         try {
             await transporter.sendMail({
                 text: 'Texto do Email',
