@@ -8,12 +8,14 @@ const contactController = require("../controllers/contact");
 const token = require("../middlewares/AuthFront");
 const ddosProtection = require("../middlewares/limitRequests");
 const adminAuth = require("../middlewares/verifyAdmin");
+const validateInfos = require("../middlewares/validateInfos");
 
 router.post(
     "/contact",
     [body("email", "Email é necessário").exists({ checkFalsy: true })],
     [body("name", "Nome é necessário").exists({ checkFalsy: true })],
     [body("message", "Mensagem é necessário").exists({ checkFalsy: true })],
+    validateInfos.validate,
     ddosProtection.sendEmailLimiter,
     token.authFront,
     contactController.contact
@@ -23,6 +25,7 @@ router.post(
     "/partner",
     [body("companyName", "Nome da empresa é necessário").exists({ checkFalsy: true })],
     [body("email", "Email é necessário").exists({ checkFalsy: true })],
+    validateInfos.validate,
     ddosProtection.sendEmailLimiter,
     token.authFront,
     contactController.partner

@@ -9,10 +9,12 @@ const token = require("../middlewares/AuthFront");
 const adminAuth = require("../middlewares/UnsureAdmin");
 const ddosProtection = require("../middlewares/limitRequests");
 const admin = require("../middlewares/verifyAdmin");
+const validateInfos = require("../middlewares/validateInfos");
 
 router.post(
     "/sendConfirmation",
     [body("email", "Email é necessário").exists({ checkFalsy: true })],
+    validateInfos.validate,
     ddosProtection.sendEmailLimiter,
     token.authFront,
     preSubController.sendPreSub
@@ -28,6 +30,7 @@ router.get(
 router.post(
     "/resendConfirmation",
     [body("email", "Email é necessário").exists({ checkFalsy: true })],
+    validateInfos.validate,
     ddosProtection.limiter,
     token.authFront,
     preSubController.resendSub
@@ -47,7 +50,7 @@ router.post(
     [body("why", "Porque é necessário").exists({ checkFalsy: true })],
     [body("habilities", "Habilidades é necessário").exists({ checkFalsy: true })],
     [body("history", "História é necessário").exists({ checkFalsy: true })],
-
+    validateInfos.validate,
     ddosProtection.speedLimiter,
     token.authFront,
     preSubController.validateEmail
